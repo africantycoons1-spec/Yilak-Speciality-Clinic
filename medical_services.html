@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Services | Yilak Speciality Clinic Jijiga</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            dark: '#0f172a',
+                            primary: '#0284c7',
+                            secondary: '#0ea5e9',
+                            accent: '#14b8a6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============ SCROLL REVEAL ANIMATIONS ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ============ TYPING TEXT CURSOR ============ */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: currentColor;
+            margin-left: 2px;
+            animation: cursorBlink 0.8s step-end infinite;
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ============ BACK TO TOP BUTTON ============ */
+        #back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 999;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0284c7, #0ea5e9);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4);
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+        #back-to-top:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(2, 132, 199, 0.5);
+        }
+
+        /* ============ FLOATING ACTION BUTTONS ============ */
+        .floating-actions {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .floating-actions a {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .floating-actions a:hover {
+            transform: scale(1.12) translateY(-3px);
+        }
+        .floating-actions .whatsapp {
+            background: #25D366;
+        }
+        .floating-actions .phone {
+            background: #0284c7;
+        }
+        .floating-actions .whatsapp:hover {
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+        .floating-actions .phone:hover {
+            box-shadow: 0 6px 25px rgba(2, 132, 199, 0.4);
+        }
+
+        /* ============ FADE PAGE TRANSITION ============ */
+        .page-transition {
+            animation: pageFadeIn 0.6s ease-out forwards;
+        }
+        @keyframes pageFadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============ STATS COUNTER ============ */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0284c7;
+            display: inline-block;
+        }
+        .stat-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* ============ DROPDOWN NAVIGATION ============ */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        }
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+        }
+        .dropdown-item {
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-submenu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased page-transition">
+
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2.5 px-4 sm:px-8 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <span><i class="fa-solid fa-phone-volume text-emerald-400 mr-2 animate-pulse"></i> Emergency: <strong class="text-white ml-1">+2519000000</strong></span>
+                <span class="hidden md:flex items-center">
+                    <i class="fa-solid fa-location-dot text-emerald-400 mr-2"></i>
+                    <a href="https://share.google/HrxLAYIwUb35IBQQx" target="_blank" class="text-slate-300 hover:text-white underline">View on Google Maps</a>
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span><i class="fa-regular fa-clock text-emerald-400 mr-2"></i> Open 24/7</span>
+                <a href="https://wa.me/2519000000" target="_blank" class="hover:text-emerald-400 flex items-center space-x-1 bg-emerald-600/30 px-2.5 py-1 rounded-md"><i class="fa-brands fa-whatsapp text-emerald-400"></i> <span>WhatsApp</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with Dropdown Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-medical-primary to-medical-accent flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        <i class="fa-solid fa-house-medical"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Yilak <span class="text-medical-primary">Speciality Clinic</span></span>
+                        <span class="block text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Private Medical Center</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation with Dropdowns -->
+            <nav class="hidden lg:flex items-center space-x-6 font-medium text-sm text-slate-600">
+                <!-- Home -->
+                <a href="index.html" class="hover:text-medical-primary transition">Home</a>
+
+                <!-- Specialists Dropdown -->
+                <div class="relative group">
+                    <a href="doctors.html" class="hover:text-medical-primary transition flex items-center gap-1">
+                        Specialists <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+                    </a>
+                    <div class="dropdown-menu absolute left-0 top-full pt-2 w-52 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                            <a href="doctors.html" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">All Specialists</a>
+                            <a href="doctors.html#general" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">General Practice</a>
+                            <a href="doctors.html#internal" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Internal Medicine</a>
+                            <a href="doctors.html#pediatrics" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Pediatrics</a>
+                            <a href="doctors.html#surgery" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Surgery & Orthopedics</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Dropdown -->
+                <div class="relative group">
+                    <a href="medical_services.html" class="text-medical-primary font-semibold flex items-center gap-1">
+                        Services <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+                    </a>
+                    <div class="dropdown-menu absolute left-0 top-full pt-2 w-56 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                            <a href="medical_services.html#general-medicine" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">General Medicine</a>
+                            <a href="medical_services.html#diagnostics" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Diagnostics & Lab</a>
+                            <a href="medical_services.html#pediatrics" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Pediatrics</a>
+                            <a href="medical_services.html#pharmacy" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Pharmacy</a>
+                            <a href="medical_services.html#icu" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">ICU Services</a>
+                            <a href="medical_services.html#emergency" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Emergency Care</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Info Dropdown -->
+                <div class="relative group">
+                    <a href="patient_info.html" class="hover:text-medical-primary transition flex items-center gap-1">
+                        Patient Info <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+                    </a>
+                    <div class="dropdown-menu absolute left-0 top-full pt-2 w-52 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                            <a href="patient_info.html#before-visit" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Before Your Visit</a>
+                            <a href="patient_info.html#payment" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Insurance & Payment</a>
+                            <a href="patient_info.html#faq" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <a href="index.html#contact" class="hover:text-medical-primary transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <!-- Language Selector Dropdown -->
+                <div class="relative hidden sm:block">
+                    <button onclick="toggleLangDropdown()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3.5 py-2.5 rounded-xl text-sm flex items-center space-x-1.5 transition">
+                        <i class="fa-solid fa-globe text-medical-primary"></i>
+                        <span id="current-lang-label">English</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+                    </button>
+                    <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-44 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden z-50">
+                        <button onclick="setLanguage('en')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 flex items-center justify-between text-slate-700 font-medium"><span>English</span> <span class="text-xs text-slate-400 font-bold">EN</span></button>
+                        <button onclick="setLanguage('am')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 flex items-center justify-between text-slate-700 font-medium"><span>አማርኛ</span> <span class="text-xs text-slate-400 font-bold">AM</span></button>
+                        <button onclick="setLanguage('so')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 flex items-center justify-between text-slate-700 font-medium"><span>Af-Somali</span> <span class="text-xs text-slate-400 font-bold">SO</span></button>
+                    </div>
+                </div>
+                <button onclick="openBookingModal()" class="bg-gradient-to-r from-medical-primary to-medical-secondary text-white font-semibold px-4 py-2.5 rounded-xl shadow-lg hover:scale-105 transition text-sm flex items-center">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> Book Appointment
+                </button>
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center space-x-2">
+                    <button onclick="toggleLangDropdownMobile()" class="bg-slate-100 text-slate-700 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1 sm:hidden">
+                        <i class="fa-solid fa-globe text-medical-primary"></i>
+                        <span id="mobile-lang-label">EN</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-700 focus:outline-none text-xl p-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown with Accordion Submenus -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-2">
+            <a href="index.html" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Home</a>
+
+            <!-- Specialists Mobile -->
+            <div class="mobile-accordion">
+                <button onclick="toggleMobileSubmenu(this)" class="flex items-center justify-between w-full text-slate-700 font-medium py-1 text-left">
+                    <span>Specialists</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu pl-4 space-y-1">
+                    <a href="doctors.html" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">All Specialists</a>
+                    <a href="doctors.html#general" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">General Practice</a>
+                    <a href="doctors.html#internal" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Internal Medicine</a>
+                    <a href="doctors.html#pediatrics" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Pediatrics</a>
+                    <a href="doctors.html#surgery" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Surgery & Orthopedics</a>
+                </div>
+            </div>
+
+            <!-- Services Mobile -->
+            <div class="mobile-accordion">
+                <button onclick="toggleMobileSubmenu(this)" class="flex items-center justify-between w-full text-slate-700 font-medium py-1 text-left">
+                    <span>Services</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu pl-4 space-y-1">
+                    <a href="medical_services.html#general-medicine" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">General Medicine</a>
+                    <a href="medical_services.html#diagnostics" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Diagnostics & Lab</a>
+                    <a href="medical_services.html#pediatrics" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Pediatrics</a>
+                    <a href="medical_services.html#pharmacy" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Pharmacy</a>
+                    <a href="medical_services.html#icu" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">ICU Services</a>
+                    <a href="medical_services.html#emergency" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Emergency Care</a>
+                </div>
+            </div>
+
+            <!-- Patient Info Mobile -->
+            <div class="mobile-accordion">
+                <button onclick="toggleMobileSubmenu(this)" class="flex items-center justify-between w-full text-slate-700 font-medium py-1 text-left">
+                    <span>Patient Info</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu pl-4 space-y-1">
+                    <a href="patient_info.html#before-visit" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Before Your Visit</a>
+                    <a href="patient_info.html#payment" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Insurance & Payment</a>
+                    <a href="patient_info.html#faq" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">FAQs</a>
+                </div>
+            </div>
+
+            <a href="index.html#contact" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Contact</a>
+
+            <div class="pt-2 flex flex-col space-y-2 border-t border-slate-200 mt-2">
+                <div class="grid grid-cols-3 gap-2 pb-2">
+                    <button onclick="setLanguage('en'); toggleMobileMenu();" class="bg-slate-100 text-slate-700 text-xs py-2 rounded-lg font-bold text-center">English</button>
+                    <button onclick="setLanguage('am'); toggleMobileMenu();" class="bg-slate-100 text-slate-700 text-xs py-2 rounded-lg font-bold text-center">አማርኛ</button>
+                    <button onclick="setLanguage('so'); toggleMobileMenu();" class="bg-slate-100 text-slate-700 text-xs py-2 rounded-lg font-bold text-center">Af-Somali</button>
+                </div>
+                <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full bg-medical-primary text-white font-semibold py-2.5 rounded-xl text-center shadow-md">
+                    Book Appointment
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title with Typing Effect -->
+    <section class="bg-slate-900 text-white py-16 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="max-w-3xl space-y-4">
+                <div class="inline-flex items-center space-x-2 bg-white/10 px-3.5 py-1 rounded-full text-xs font-semibold text-sky-300">
+                    <i class="fa-solid fa-stethoscope mr-1"></i> Medical Departments & Treatments
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight typing-effect" data-text="Comprehensive Clinical Services">
+                    <!-- Typing effect replaces this -->
+                </h1>
+                <p class="text-slate-300 text-base reveal">Explore our specialized medical divisions providing world-class diagnostics, specialized consultations, and round-the-clock emergency patient care in Jijiga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-12 bg-white border-b border-slate-200 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5000">0</span>
+                    <span class="stat-label">Happy Patients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-label">Expert Doctors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">% Patient Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services List -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-8 space-y-16">
+
+        <!-- Service 1: General Medicine -->
+        <div id="general-medicine" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl font-bold shadow-inner">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">General Medicine & Consultations</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Comprehensive primary care for adults, including health evaluations, chronic disease management, and preventive screenings.</p>
+                <div class="pt-2">
+                    <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3 rounded-xl text-sm shadow transition">Book Consultation</button>
+                </div>
+            </div>
+            <div class="lg:col-span-7 bg-slate-50 rounded-2xl p-6 border border-slate-100 space-y-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Services Include</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Routine Check-ups</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Chronic Disease Management</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Preventive Care & Vaccinations</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Health Screenings</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Diagnostics -->
+        <div id="diagnostics" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl font-bold shadow-inner">
+                    <i class="fa-solid fa-microscope"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostics & Laboratory</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Equipped with advanced digital imaging and pathology systems, our laboratory delivers fast, high-precision blood testing, ultrasound diagnostics, and rapid clinical screening.</p>
+                <div class="pt-2">
+                    <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3 rounded-xl text-sm shadow transition">Schedule Lab Test</button>
+                </div>
+            </div>
+            <div class="lg:col-span-7 bg-slate-50 rounded-2xl p-6 border border-slate-100 space-y-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Diagnostic Capabilities</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Advanced Blood Pathology</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Digital Ultrasound Imaging</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Rapid Infectious Disease Screening</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Urinalysis & Biochemistry</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Pediatrics -->
+        <div id="pediatrics" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl font-bold shadow-inner">
+                    <i class="fa-solid fa-child-reaching"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Pediatrics & Maternal Care</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Dedicated infant care, vaccination scheduling, pediatric health monitoring, and prenatal support designed to protect the health of mothers and children.</p>
+                <div class="pt-2">
+                    <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3 rounded-xl text-sm shadow transition">Book Pediatric Visit</button>
+                </div>
+            </div>
+            <div class="lg:col-span-7 bg-slate-50 rounded-2xl p-6 border border-slate-100 space-y-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Family Health Services</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Childhood Immunization</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Newborn & Infant Health Checks</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Prenatal Maternal Support</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Nutritional Growth Monitoring</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Pharmacy -->
+        <div id="pharmacy" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl font-bold shadow-inner">
+                    <i class="fa-solid fa-pills"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Pharmacy Services</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Fully stocked dispensary providing prescription medications, vaccines, and pharmaceutical consultations 24/7.</p>
+                <div class="pt-2">
+                    <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3 rounded-xl text-sm shadow transition">Visit Pharmacy</button>
+                </div>
+            </div>
+            <div class="lg:col-span-7 bg-slate-50 rounded-2xl p-6 border border-slate-100 space-y-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Pharmacy Services</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Prescription Medications</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Vaccines & Immunizations</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Pharmaceutical Consultations</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> 24/7 Emergency Dispensary</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5: ICU -->
+        <div id="icu" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl font-bold shadow-inner">
+                    <i class="fa-solid fa-bed-pulse"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">ICU Services</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Advanced Intensive Care Unit equipped with life-support monitors, ventilators, and specialized critical care nurses.</p>
+                <div class="pt-2">
+                    <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3 rounded-xl text-sm shadow transition">Contact ICU</button>
+                </div>
+            </div>
+            <div class="lg:col-span-7 bg-slate-50 rounded-2xl p-6 border border-slate-100 space-y-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">ICU Capabilities</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Life-Support Monitors</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Ventilators</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Critical Care Nurses</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> 24/7 Monitoring</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 6: Emergency -->
+        <div id="emergency" class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="w-14 h-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-2xl font-bold shadow-inner">
+                    <i class="fa-solid fa-truck-medical"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Emergency Care Services</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">24/7 emergency response unit, trauma care, rapid triage, and ambulance dispatch for urgent medical attention.</p>
+                <div class="pt-2">
+                    <button onclick="openBookingModal()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl text-sm shadow transition">Call Emergency</button>
+                </div>
+            </div>
+            <div class="lg:col-span-7 bg-slate-50 rounded-2xl p-6 border border-slate-100 space-y-4">
+                <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Emergency Capabilities</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> 24/7 Emergency Response</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Trauma Care</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Rapid Triage</div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 flex items-center"><i class="fa-solid fa-check text-medical-primary mr-2"></i> Ambulance Dispatch</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <span class="text-2xl font-extrabold text-white">Yilak <span class="text-medical-primary">Speciality Clinic</span></span>
+                    <p class="text-sm mt-4 text-slate-400">Private Medical Center located in Jijiga. Providing expert care with a personal touch.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="doctors.html" class="hover:text-white">Specialists</a></li>
+                        <li><a href="medical_services.html" class="hover:text-white">Services</a></li>
+                        <li><a href="patient_info.html" class="hover:text-white">Patient Info</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Phone/WhatsApp: <strong class="text-white">+2519000000</strong></li>
+                        <li>Location: <a href="https://share.google/HrxLAYIwUb35IBQQx" target="_blank" class="text-medical-primary underline">View on Google Maps</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+                &copy; 2026 Yilak Speciality Clinic (Jigjiga). All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions" id="floating-actions">
+        <a href="https://wa.me/2519000000" target="_blank" class="whatsapp" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:+2519000000" class="phone" aria-label="Call us">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative animate-fade-in">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-2">Book Department Consultation</h3>
+            <p class="text-xs text-slate-500 mb-6">Secure your appointment at Yilak Speciality Clinic, Jijiga.</p>
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Enter your full name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-medical-primary">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Phone Number</label>
+                        <input type="tel" required value="+2519000000" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-medical-primary">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Department</label>
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-medical-primary">
+                            <option>General Medicine</option>
+                            <option>Diagnostics & Laboratory</option>
+                            <option>Pediatrics & Maternal Care</option>
+                            <option>Pharmacy Services</option>
+                            <option>ICU Services</option>
+                            <option>Emergency Care</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-medical-primary to-medical-secondary text-white font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition text-sm">
+                    Confirm Booking Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        // Language Support
+        const translations = {
+            en: {
+                emergency_label: "Emergency",
+                hours_label: "Open 24/7 Emergency & Inpatient",
+                tagline: "Private Medical Center",
+                nav_home: "Home",
+                nav_doctors: "Specialists",
+                nav_services: "Services",
+                nav_gallery: "Gallery",
+                nav_story: "Our Story",
+                nav_contact: "Contact",
+                ai_assistant_btn: "AI Assistant",
+                book_btn: "Book Appointment",
+                hero_badge: "Jigjiga's Leading Private Healthcare Clinic",
+                hero_title_1: "Yilak Speciality Clinic",
+                hero_title_2: "Speciality Clinic",
+                hero_desc: "Your Health Is Our Priority. With experienced specialists, modern diagnostic technology, and patient-centered treatment tailored for your family's well-being at Yilak Speciality Clinic in Jijiga.",
+                book_appointment_cta: "Book An Appointment",
+                whatsapp_cta: "Chat on WhatsApp",
+                welcome_mesh: "Welcome to Yilak Speciality Clinic",
+                call_us_now: "Call Us Now",
+                whatsapp_chat: "WhatsApp Support",
+                expert_team: "Expert Medical Team",
+                specialists_heading: "Meet Our Dedicated Specialists",
+                specialists_sub: "Consult with senior physicians and specialists committed to your health and rapid recovery.",
+                book_consultation: "Book Consultation",
+                book_appointment_card: "Book Appointment",
+                doc_spec_1: "General Practitioner",
+                doc_spec_2: "Internal Medicine",
+                doc_spec_3: "Pediatrics",
+                doc_spec_4: "Surgery",
+                learn_more: "Learn More",
+                footer_desc: "Yilak Speciality Clinic provides dedicated healthcare services with expert physicians, advanced diagnostic support, and compassionate patient care in Jijiga.",
+                privacy_policy: "Privacy Policy",
+                terms_service: "Terms of Service",
+                book_modal_title: "Book Your Appointment",
+                book_modal_sub: "Fill in your details to secure a consultation at Yilak Speciality Clinic.",
+                label_fullname: "Full Name",
+                label_phone: "Phone Number",
+                label_dept: "Department",
+                label_date: "Preferred Date",
+                label_time: "Preferred Time",
+                confirm_booking_btn: "Confirm Appointment Request",
+                toast_title: "Appointment Requested!",
+                toast_sub: "We will call +2519000000 shortly to confirm."
+            },
+            am: {
+                emergency_label: "ድንገተኛ አደጋ",
+                hours_label: "24/7 የድንገተኛ እና ህሙማን ማቆያ ክፍት ነው",
+                tagline: "ግል የህክምና ማዕከል",
+                nav_home: "መነሻ",
+                nav_doctors: "ባለሙያዎች",
+                nav_services: "አገልግሎቶች",
+                nav_gallery: "ፎቶዎች",
+                nav_story: "ታሪካችን",
+                nav_contact: "አግኙን",
+                ai_assistant_btn: "የAI ረዳት",
+                book_btn: "ቀጠሮ ይያዙ",
+                hero_badge: "የጅጅጋ መሪ የግል ህክምና ክሊኒክ",
+                hero_title_1: "Yilak Speciality Clinic",
+                hero_title_2: "ልዩ ክሊኒክ",
+                hero_desc: "የእርስዎ ጤና ቅድሚያችን ነው! Yilak Speciality Clinic በጅጅጋ ከተማ ልምድ ያላቸው ሃኪሞች እና ዘመናዊ የላብራቶሪ መሣሪያዎች በአንድ ላይ ተሟልተዋል።",
+                book_appointment_cta: "ቀጠሮ ይያዙ",
+                whatsapp_cta: "በዋትስአፕ ያነጋገሩን",
+                welcome_mesh: "ወደ Yilak Speciality Clinic እንኳን በደህና መጡ",
+                call_us_now: "አሁን ይደውሉልን",
+                whatsapp_chat: "የዋትስአፕ ድጋፍ",
+                expert_team: "የህክምና ባለሙያዎች",
+                specialists_heading: "የእኛ ልዩ ባለሙያተኞች",
+                specialists_sub: "ለጤናዎ እና ፈጣን ማገገምዎ ቁርጠኛ ከሆኑ ሃኪሞች ጋር ያማክሩ።",
+                book_consultation: "ምክክር መርሐግብር",
+                book_appointment_card: "ቀጠሮ ይያዙ",
+                doc_spec_1: "አጠቃላይ ሃኪም",
+                doc_spec_2: "የውስጥ ደዌ ባለሙያ",
+                doc_spec_3: "የህፃናት እና ቤተሰብ ጤና",
+                doc_spec_4: "ቀዶ ጥገና ባለሙያ",
+                learn_more: "ተጨማሪ ይወቁ",
+                footer_desc: "Yilak Speciality Clinic በጅጅጋ ከተማ በባለሙያ ሐኪሞች እና በዘመናዊ የምርመራ ድጋፍ የታገዘ ጥራት ያለው የህክምና አገልግሎት ይሰጣል።",
+                privacy_policy: "የግላዊነት ፖሊሲ",
+                terms_service: "የአገልግሎት ውሎች",
+                book_modal_title: "ቀጠሮዎን ይያዙ",
+                book_modal_sub: "በYilak Speciality Clinic ለመታከም ዝርዝር መረጃዎን ይሙሉ",
+                label_fullname: "ሙሉ ስም",
+                label_phone: "ስልክ ቁጥር",
+                label_dept: "ክፍል",
+                label_date: "የሚፈልጉት ቀን",
+                label_time: "የሚፈልጉት ሰዓት",
+                confirm_booking_btn: "የቀጠሮ ጥያቄውን ያረጋግጡ",
+                toast_title: "ቀጠሮ ተጠይቋል!",
+                toast_sub: "ለማረጋገጫ በ +2519000000 እንደውልልዎታለን።"
+            },
+            so: {
+                emergency_label: "Degdeg",
+                hours_label: "Furan 24/7 Adeegga Degdga & Jiifka",
+                tagline: "Xarun Caafimaad oo Gaar loo leeyahay",
+                nav_home: "Bogga Hore",
+                nav_doctors: "Takhasusyada",
+                nav_services: "Adeegyada",
+                nav_gallery: "Sawirada",
+                nav_story: "Sheekadeena",
+                nav_contact: "Nala Soo Xiriir",
+                ai_assistant_btn: "Kaaliyaha AI",
+                book_btn: "Ballansato",
+                hero_badge: "Xarunta Caafimaad ee Hormuudka ka ah Jigjiga",
+                hero_title_1: "Yilak Speciality Clinic",
+                hero_title_2: "Speciality Clinic",
+                hero_desc: "Daryeelka caafimaadkaaga ayaa ah mudnaantayada. Yilak Speciality Clinic waxay bixisaa daryeel caafimaad oo lagu kalsoonaan karo iyadoo ay joogaan dhakhaatiir khibrad leh, tignoolajiyad casri ah, iyo daryeel qoyskaaga ku habboon.",
+                book_appointment_cta: "Ballan Qabso",
+                whatsapp_cta: "Nagala Hadal WhatsApp",
+                welcome_mesh: "Ku soo dhowow Yilak Speciality Clinic",
+                call_us_now: "Na Soo Wac Hadda",
+                whatsapp_chat: "Taageerada WhatsApp",
+                expert_team: "Kooxda Caafimaadka",
+                specialists_heading: "La Kulanto Dhakhaatiirteena Takhasuska Leh",
+                specialists_sub: "La tasho dhakhaatiir sare oo u heellan caafimaadkaaga iyo bogsashadaada degdeg ah.",
+                book_consultation: "Ballansato La-tashi",
+                book_appointment_card: "Ballan Qabso",
+                doc_spec_1: "Dhakhtarka Guud",
+                doc_spec_2: "Takhasusaha Cudurada Gudaha",
+                doc_spec_3: "Cilmiga Carruurta & Qoyska",
+                doc_spec_4: "Qalliinka & Lafaha",
+                learn_more: "Wax Dheeraad ah Baro",
+                footer_desc: "Yilak Speciality Clinic waxay bixisaa adeegyo caafimaad oo heersare ah oo ay weheliyaan dhakhaatiir khibrad leh iyo taageero shaybaar oo Jigjiga ku taalla.",
+                privacy_policy: "Siyaasadda Khaas ahaanshaha",
+                terms_service: "Shuruudaha Adeegga",
+                book_modal_title: "Ballansato Ballantaada",
+                book_modal_sub: "Buuxi faahfaahintaada si aad ballan uga qabsatid Yilak Speciality Clinic.",
+                label_fullname: "Magaca oo Buuxa",
+                label_phone: "Lambarka Telefoonka",
+                label_dept: "Waaxda",
+                label_date: "Taariikhda la doorbiday",
+                label_time: "Waqtiga la doorbiday",
+                confirm_booking_btn: "Xaqiiji Codsiga Ballanta",
+                toast_title: "Ballan ayaa la Codsaday!",
+                toast_sub: "Waxaanu ku soo wici doonaa +2519000000 si aanu u xaqiijino."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const dict = translations[lang] || translations['en'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+            const labels = { en: 'English', am: 'አማርኛ', so: 'Af-Somali' };
+            const shortLabels = { en: 'EN', am: 'AM', so: 'SO' };
+            const langLabel = document.getElementById('current-lang-label');
+            const mobileLabel = document.getElementById('mobile-lang-label');
+            if (langLabel) langLabel.textContent = labels[lang];
+            if (mobileLabel) mobileLabel.textContent = shortLabels[lang];
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+        }
+
+        function toggleLangDropdown() {
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown) dropdown.classList.toggle('hidden');
+        }
+
+        function toggleLangDropdownMobile() {
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown) dropdown.classList.toggle('hidden');
+        }
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#lang-dropdown') && !e.target.closest('button[onclick="toggleLangDropdown()"]') && !e.target.closest('button[onclick="toggleLangDropdownMobile()"]')) {
+                const dropdown = document.getElementById('lang-dropdown');
+                if (dropdown) dropdown.classList.add('hidden');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        function toggleMobileMenu() {
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+        }
+
+        // Mobile accordion submenu toggle
+        function toggleMobileSubmenu(btn) {
+            const parent = btn.closest('.mobile-accordion');
+            if (!parent) return;
+            const submenu = parent.querySelector('.mobile-submenu');
+            const chevron = btn.querySelector('.fa-chevron-down');
+            if (submenu) {
+                submenu.classList.toggle('open');
+                if (chevron) {
+                    chevron.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            }
+        }
+
+        // Booking Modal
+        function openBookingModal() {
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            alert("Appointment requested! We will call +2519000000 shortly.");
+        }
+
+        // ============================================================
+        // 1. TYPING TEXT EFFECT
+        // ============================================================
+        function typeText(element, text, speed = 60) {
+            if (!element) return;
+            let i = 0;
+            element.textContent = '';
+            const cursor = document.createElement('span');
+            cursor.className = 'typing-cursor';
+            element.appendChild(cursor);
+
+            function type() {
+                if (i < text.length) {
+                    const char = text.charAt(i);
+                    const textNode = document.createTextNode(char);
+                    element.insertBefore(textNode, cursor);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    cursor.style.display = 'none';
+                }
+            }
+            type();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const typingElements = document.querySelectorAll('.typing-effect');
+            typingElements.forEach(el => {
+                const text = el.getAttribute('data-text') || el.textContent.trim();
+                el.textContent = '';
+                typeText(el, text, 50);
+            });
+        });
+
+        // ============================================================
+        // 2. SCROLL REVEAL ANIMATIONS
+        // ============================================================
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            reveals.forEach(el => revealObserver.observe(el));
+        }
+
+        // ============================================================
+        // 3. STATS COUNTER
+        // ============================================================
+        function initStatsCounter() {
+            const stats = document.querySelectorAll('.stat-number');
+            let statsAnimated = false;
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !statsAnimated) {
+                        statsAnimated = true;
+                        stats.forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-target'));
+                            if (isNaN(target)) return;
+                            let current = 0;
+                            const increment = Math.ceil(target / 60);
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    current = target;
+                                    clearInterval(timer);
+                                }
+                                stat.textContent = current + (target > 100 ? '+' : '');
+                            }, 30);
+                        });
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) statsObserver.observe(statsSection);
+        }
+
+        // ============================================================
+        // 4. BACK TO TOP BUTTON
+        // ============================================================
+        function initBackToTop() {
+            const backBtn = document.getElementById('back-to-top');
+            if (!backBtn) return;
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    backBtn.classList.add('visible');
+                } else {
+                    backBtn.classList.remove('visible');
+                }
+            });
+            backBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // ============================================================
+        // 5. FLOATING ACTIONS
+        // ============================================================
+        function initFloatingActions() {
+            const actions = document.getElementById('floating-actions');
+            if (!actions) return;
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    actions.style.opacity = '0.7';
+                    actions.style.transform = 'scale(0.95)';
+                } else {
+                    actions.style.opacity = '1';
+                    actions.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        // ============================================================
+        // 6. INITIALIZE ALL EFFECTS
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollReveal();
+            initStatsCounter();
+            initBackToTop();
+            initFloatingActions();
+        });
+    </script>
+
+</body>
+</html>
