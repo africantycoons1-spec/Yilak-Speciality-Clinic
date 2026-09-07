@@ -878,84 +878,76 @@
         </div>
     </section>
 
-    <!-- ============ DEPARTMENTS / SERVICES SECTION ============ -->
-    <section id="services" class="w-full bg-teal-50/50 py-16 lg:py-24 border-b border-slate-200 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="clinical_services">Clinical Services</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="services_heading">Our Departments</h2>
+  <!-- ============ DEPARTMENTS / SERVICES SECTION ============ -->
+<section id="services" class="w-full py-16 lg:py-24 border-b border-slate-200 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="clinical_services">Clinical Services</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="services_heading">Our Departments</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 1: General Medicine -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP_VIHAYouWHhJ_cNFzKCNmgrS-IPHA8lA3qkjD8MKCw&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_1_title">General Medicine & Consultations</h3>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed" data-i18n="serv_1_desc">Primary health evaluations, chronic illness management, routine wellness checks, and preventive care.</p>
+                    <button onclick="openServiceModal('General Medicine')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_1_title">General Medicine & Consultations</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_1_desc">Primary health evaluations, chronic illness management, routine wellness checks, and preventive care.</p>
-                    <button onclick="openServiceModal('General Medicine')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline">
-                        <span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
-                    </button>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm">
-                        <i class="fa-solid fa-microscope"></i>
-                    </div>
+            <!-- 2: Diagnostics & Laboratory -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ZVgaGyjKARfpu2NBat-orOhkKEYQRVUuTq4oA-g1NA&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-microscope"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_2_title">Diagnostics & Laboratory</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_2_desc">High-precision digital lab testing, blood analysis, ultrasound diagnostics, and rapid screening.</p>
-                    <button onclick="openServiceModal('Diagnostics')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline">
-                        <span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
-                    </button>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed" data-i18n="serv_2_desc">High-precision digital lab testing, blood analysis, ultrasound diagnostics, and rapid screening.</p>
+                    <button onclick="openServiceModal('Diagnostics')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm">
-                        <i class="fa-solid fa-child-reaching"></i>
-                    </div>
+            </div>
+
+            <!-- 3: Pediatrics & Maternal Care -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYsuZY1l8nMBdlhs1lN4S2Io0OvA2S5eKZkjmGL08jlw&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-child-reaching"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_3_title">Pediatrics & Maternal Care</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_3_desc">Dedicated infant care, vaccination programs, prenatal support, and family health guidance.</p>
-                    <button onclick="openServiceModal('Pediatrics')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline">
-                        <span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
-                    </button>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed" data-i18n="serv_3_desc">Dedicated infant care, vaccination programs, prenatal support, and family health guidance.</p>
+                    <button onclick="openServiceModal('Pediatrics')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- Service 4 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm">
-                        <i class="fa-solid fa-pills"></i>
-                    </div>
+            </div>
+
+            <!-- 4: Pharmacy Services -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC8FNq1CYW_cNP4aHCaT1fMOAOaqxmWVuCoH9FEY_Ng&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-pills"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Pharmacy Services</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Fully stocked dispensary providing prescription medications, vaccines, and pharmaceutical consultations 24/7.</p>
-                    <button onclick="openServiceModal('Pharmacy Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline">
-                        <span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
-                    </button>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">Fully stocked dispensary providing prescription medications, vaccines, and pharmaceutical consultations 24/7.</p>
+                    <button onclick="openServiceModal('Pharmacy Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- Service 5 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm">
-                        <i class="fa-solid fa-bed-pulse"></i>
-                    </div>
+            </div>
+
+            <!-- 5: ICU Services -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQC5WKM6T2R0s9545VYCzAM48JkyjsbVspDI6T29LK3w&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-bed-pulse"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">ICU Services</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Advanced Intensive Care Unit equipped with life-support monitors, ventilators, and specialized critical care nurses.</p>
-                    <button onclick="openServiceModal('ICU Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline">
-                        <span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
-                    </button>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">Advanced Intensive Care Unit equipped with life-support monitors, ventilators, and specialized critical care nurses.</p>
+                    <button onclick="openServiceModal('ICU Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- Service 6 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm">
-                        <i class="fa-solid fa-truck-medical"></i>
-                    </div>
+            </div>
+
+            <!-- 6: Emergency Care Services -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWut9Yf8Ld1VdOFNwmNWwctFhJ6-NldrRXUdgGJYyjQw&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-truck-medical"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Emergency Care Services</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">24/7 emergency response unit, trauma care, rapid triage, and ambulance dispatch for urgent medical attention.</p>
-                    <button onclick="openServiceModal('Emergency Care Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline">
-                        <span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
-                    </button>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">24/7 emergency response unit, trauma care, rapid triage, and ambulance dispatch for urgent medical attention.</p>
+                    <button onclick="openServiceModal('Emergency Care Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ============ FACILITY SHOWCASE ============ -->
     <section id="gallery" class="w-full bg-slate-950 text-white py-16 sm:py-20 lg:py-28 reveal">
