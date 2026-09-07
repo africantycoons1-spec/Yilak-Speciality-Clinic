@@ -539,45 +539,55 @@
 </section>
 
     <!-- ============ WELCOME SECTION ============ -->
-    <section class="w-full bg-slate-100/90 py-16 lg:py-24 border-b border-slate-200 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-12 border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div class="lg:col-span-8 space-y-4">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-medical-primary tracking-tight" data-i18n="welcome_mesh">Welcome to Yilak Speciality Clinic</h2>
-                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
-                        Yilak Speciality Clinic is located in the heart of Jijiga (<a href="https://share.google/HrxLAYIwUb35IBQQx" target="_blank" class="text-medical-primary underline font-semibold">View on Google Maps</a>).
-                    </p>
-                    <div class="flex items-center space-x-3 bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-700 font-extrabold text-xs sm:text-base shadow-md">
-                        <i class="fa-solid fa-phone-volume text-rose-600 text-xl animate-pulse"></i>
-                        <span>CALL THESE NUMBERS FOR EMERGENCY!</span>
-                        <div class="ml-auto flex items-center space-x-1 text-medical-primary">
-                            <i class="fa-solid fa-arrow-right text-2xl animate-bounce"></i>
-                        </div>
+<section class="w-full bg-slate-100/90 py-16 lg:py-24 border-b border-slate-200 reveal relative bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative">
+        
+        <!-- AMBULANCE IMAGE - LEFT SIDE (pushed further left) -->
+        <div class="hidden lg:block absolute -left-24 top-1/2 -translate-y-1/2 w-36 h-36 opacity-80">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiE9qwk_W9p8z8lwmddEsNkKxB6vXqHafL_qST-HwSVw&s=10" alt="Ambulance" class="w-full h-full object-contain" loading="lazy">
+        </div>
+
+        <!-- AMBULANCE IMAGE - RIGHT SIDE (pushed further right) -->
+        <div class="hidden lg:block absolute -right-24 top-1/2 -translate-y-1/2 w-36 h-36 opacity-80 scale-x-[-1]">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiE9qwk_W9p8z8lwmddEsNkKxB6vXqHafL_qST-HwSVw&s=10" alt="Ambulance" class="w-full h-full object-contain" loading="lazy">
+        </div>
+
+        <!-- MAIN CONTENT BOX (unchanged) -->
+        <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-12 border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-medical-primary tracking-tight" data-i18n="welcome_mesh">Welcome to Yilak Speciality Clinic</h2>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">Yilak Speciality Clinic is located in the heart of Jijiga (<a href="https://share.google/HrxLAYIwUb35IBQQx" target="_blank" class="text-medical-primary underline font-semibold">View on Google Maps</a>).</p>
+                <div class="flex items-center space-x-3 bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-700 font-extrabold text-xs sm:text-base shadow-md">
+                    <i class="fa-solid fa-phone-volume text-rose-600 text-xl animate-pulse"></i>
+                    <span>CALL THESE NUMBERS FOR EMERGENCY!</span>
+                    <div class="ml-auto flex items-center space-x-1 text-medical-primary">
+                        <i class="fa-solid fa-arrow-right text-2xl animate-bounce"></i>
                     </div>
                 </div>
-                <div class="lg:col-span-4 flex flex-col space-y-3">
-                    <a href="tel:+2519000000" class="bg-medical-50 hover:bg-medical-100 border border-medical-200 p-4 rounded-2xl flex items-center space-x-4 transition">
-                        <div class="w-12 h-12 rounded-xl bg-medical-primary text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-500 font-medium block" data-i18n="call_us_now">Call Us Now</span>
-                            <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
-                        </div>
-                    </a>
-                    <a href="https://wa.me/2519000000" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 p-4 rounded-2xl flex items-center space-x-4 transition">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-500 font-medium block" data-i18n="whatsapp_chat">WhatsApp Support</span>
-                            <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
-                        </div>
-                    </a>
-                </div>
+            </div>
+            <div class="lg:col-span-4 flex flex-col space-y-3">
+                <a href="tel:+2519000000" class="bg-medical-50 hover:bg-medical-100 border border-medical-200 p-4 rounded-2xl flex items-center space-x-4 transition">
+                    <div class="w-12 h-12 rounded-xl bg-medical-primary text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 font-medium block" data-i18n="call_us_now">Call Us Now</span>
+                        <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
+                    </div>
+                </a>
+                <a href="https://wa.me/2519000000" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 p-4 rounded-2xl flex items-center space-x-4 transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 font-medium block" data-i18n="whatsapp_chat">WhatsApp Support</span>
+                        <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ============ STATS COUNTER SECTION ============ -->
     <section class="stats-section py-12 bg-white border-b border-slate-200 reveal">
